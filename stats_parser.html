@@ -21,10 +21,10 @@
     var multikillMedals = ["2078758684","2763748638","3710519250","317993761","1807727172","343942800","565087105","3033979855","1492451766"];
     
     //all medal ids for strongholds medals
-    var strongholdsMedals = [];
+    var strongholdsMedals = ["2105198095","3354395650","3565443938","1351381581","2916014239","1637841390","2896365521"];
     
     //all medal ids for CTF medals
-    var ctfMedals = [];
+    var ctfMedals = ["2322887852","394618614","3894006667","4116576170","1838382875","2137994204","1669270602","2299864088","2028249938","1957561936","1427531503","3886151616","164204247","1494478183","2380717523"];
     
     function parseStats(){
         //we have the entire json object as a string for a single match
@@ -45,7 +45,7 @@
         //Power Weapon Whore - awarded to the player with the most power weapon kills
         
         //example player object for one match
-        //var player = {gamertag:"SuperSaur",kills:10,deaths:8,assists:4,perfects:1,damageDealt:1191.6000442504883,multikills:2,powerWeaponKills:0,grenadeKills:2,headshots:3,accuracy:0.4673913043478261}
+        //var player = {gamertag:"SuperSaur",kills:10,deaths:8,assists:4,perfects:1,damageDealt:1191.6000442504883,multikills:2,powerWeaponKills:0,grenadeKills:2,headshots:3,accuracy:0.4673913043478261,ctfmedals:0,strongholdsmedals:5}
         var player0 = new Object();
         var player1 = new Object();
         var player2 = new Object();
@@ -100,6 +100,9 @@
             tempPlayer.deaths = playerObj.TotalDeaths;
             tempPlayer.assists = playerObj.TotalAssists;
             tempPlayer.perfects = numPerfects;
+            tempPlayer.multikills = numMultikills;
+            tempPlayer.ctfmedals = numCtfMedals;
+            tempPlayer.strongholdsmedals = numStrongholdsMedals;
             tempPlayer.accuracy = (playerObj.TotalShotsLanded/playerObj.TotalShotsFired);
             
             //at the end, copy tempPlayer to the actual player
@@ -123,7 +126,7 @@
             playerIndex++;
         }
         //then I want them set into a CSV table that can be viewed in excel
-        
+        //OR display them with html nicely
         
     }
 </script>
